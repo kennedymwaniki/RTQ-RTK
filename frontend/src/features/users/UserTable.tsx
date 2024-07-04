@@ -2,12 +2,11 @@ import { useGetUsersQuery, useDeleteUserMutation } from "./UsersAPI";
 import { Toaster, toast } from "sonner";
 
 function UserTable() {
-  const {
-    data: usersData,
-    error,
-    isLoading,
-    isError,
-  } = useGetUsersQuery({ pollingInterval: 3000, skipPollingIfUnfocused: true });
+  const page = 1;
+  const { data: usersData, error, isLoading, isError } = useGetUsersQuery(page,{
+    pollingInterval: 10000,
+    refetchOnMountOrArgChange: true,
+    skip: false, })
 
   const [deleteUser, { isLoading: isDeleting, data: deletemsg }] =
     useDeleteUserMutation();
