@@ -4,6 +4,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "studio": "drizzle-kit studio",
+    "gen": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
     "push": "drizzle-kit push"
   },
   "dependencies": {
